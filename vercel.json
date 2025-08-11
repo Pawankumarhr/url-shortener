@@ -1,0 +1,21 @@
+{
+  "functions": {
+    "api/*.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/([a-zA-Z0-9]{6})",
+      "dest": "/api/[shortCode]?shortCode=$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
